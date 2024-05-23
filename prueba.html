@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form class="formulario" name="filmsForm" action="" method="">
+        <fieldset>
+            <legend>Formulario Películas</legend>
+            <label for="tituloPelicula">Título</label>
+            <input name="tituloPelicula" type="text" id="tituloPelicula">
+            <label for="directorPelicula">Director</label>
+            <input name="directorPelicula" type="text" id="directorPelicula">
+            <label for="yearPelicula">Año</label>
+            <input name="yearPelicula" type="number" id="yearPelicula">
+            <label for="generoPelicula">Género</label>
+            <select name="genero" id="generoPelicula"></select>
+            <input type="submit" id="submit" value="Enviar Consulta">
+        </fieldset>
+    </form>
+
+    <script>
+        let form = document.querySelector(".formulario");
+        form.addEventListener("submit",(ev)=>{
+            ev.preventDefault();
+            let titulo = form.tituloPelicula.value
+            console.log(ev);
+            console.log(titulo);
+        })
+
+        let array=["a","b","c","b","a","c"];
+        const array1 = new Set(array);
+        console.log(array1);
+
+        const obj = {a: 1, b: 2, c: 3}
+        console.log(obj.values())
+        
+    </script>
+</body>
+</html>

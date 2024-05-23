@@ -1,0 +1,60 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    min-height: 100vh;
+    font-family: 'Radio Canada Big', 'sans-serif';
+}
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 24px;
+    padding: 14px;
+    gap: 14px;
+}
+fieldset {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 24px;
+}
+fieldset #submit {
+    text-wrap: wrap;
+    cursor: pointer;
+    width: 25%;
+    height: 54px;
+    align-self: center;
+    background-color: #007CFF;
+    color: white;
+    font-weight: bold;
+    border-radius: 12px;
+    border: 2px solid #007CFF;
+    box-shadow: 2px 2px 0 0 white,
+    4px 4px 0 0 #007CFF;
+}
+fieldset #submit:hover {
+    box-shadow: 3px 3px white,
+    6px 6px #007CFF;
+    transform: translate(-2px -2px);
+}
+.tablaSection {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+.filtrarContainer {
+    display: flex;
+    justify-content: space-between;
+}
+table {
+    border: 1px solid black;
+    width: 400px;
+    text-align: center;
+    border-collapse: collapse;
+  }
+.tablaContenido {
+    width: 100%;
+}

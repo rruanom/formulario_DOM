@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario Películas</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Radio+Canada+Big:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header></header>
+    <main>
+        <section class="formSection">
+            <h3>Formulario</h3>
+            <form class="formulario" name="filmsForm" action="" method="">
+                <fieldset>
+                    <legend>Formulario Películas</legend>
+                    <label for="tituloPelicula">Título</label>
+                    <input name="tituloPelicula" type="text" id="tituloPelicula">
+                    <label for="directorPelicula">Director</label>
+                    <input name="directorPelicula" type="text" id="directorPelicula">
+                    <label for="yearPelicula">Año</label>
+                    <input name="yearPelicula" type="number" id="yearPelicula">
+                    <label for="generoPelicula">Género</label>
+                    <select name="genero" id="genero"></select>
+                    <input type="submit" id="submit" value="Enviar Consulta">
+                </fieldset>
+            </form>
+        </section>
+        <section class="tablaSection">
+            <div class="filtrarContainer">
+                <h3>Mostrar</h3>
+                <div>
+                    <label for="filtrar">Filtrar</label>
+                    <select name="filtarSelect" id="filtrar" disabled></select>
+                </div>
+            </div>
+            <table class="tablaContenido">
+                <thead>
+                    <tr>
+                        <th>Título</th>
+                        <th>Director</th>
+                        <th>Año</th>
+                        <th>Género</th>
+                    </tr>
+                </thead>
+                <tbody class="listaFiltrada">
+                    <tr>
+                        <td colspan="4">No se ha seleccionado ningun género</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+    <script src="main.js"></script>
+</body>
+</html>
