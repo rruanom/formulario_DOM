@@ -23,28 +23,8 @@ formulario.addEventListener("submit", (ev) =>{
 filtroGenero.addEventListener("change", (ev)=>{
     listaFiltrada.innerHTML = "";
     let select = document.getElementById("filtrar");
-    let generoSeleccionado = select.value;//da el valor de select
-    if (generoSeleccionado == "---"){//funciona
-        let fila = document.createElement("tr");
-        let columna = document.createElement("td");
-
-        columna.setAttribute("colspan", "4");
-        columna.textContent = "No se ha seleccionado ningun género"
-
-        fila.append(columna);
-        listaFiltrada.append(fila);
-    } else if (generoSeleccionado== "Todos") {//funciona
-        listaPeliculas.forEach((element)=>{
-            let celda = pintarFila(element);
-            fragment.append(celda);
-        });
-        listaFiltrada.append(fragment);
-    } else {
-        console.log("he entrado en lista");
-        let tablaFiltrada1 =filtrarCrearTabla(generoSeleccionado)
-        console.log(tablaFiltrada1);
-        listaFiltrada.append(tablaFiltrada1);
-    }
+    let valorFiltrado = select.value;//da el valor de select
+    pintarTablaFiltrada(valorFiltrado);
 });
 
 //Funciones
@@ -103,6 +83,8 @@ const validarGuardarDatos = (titulo1, director1, year1, genero1)=>{
     } 
 
     if (errores.length == 1) {
+        let select = document.getElementById("filtrar");
+        let valorFiltrado = select.value;//da el valor de select
         let nuevaPelicula = {
         titulo: titulo1,
         director: director1,
@@ -115,6 +97,9 @@ const validarGuardarDatos = (titulo1, director1, year1, genero1)=>{
         filtroGenero.append(crearDesplegable("---","Todos", ...listasUnicas));
         activarFiltro();
         formulario.reset();
+        listaFiltrada.innerHTML = "";
+        pintarTablaFiltrada(valorFiltrado);
+
     } else {
         let alerta = crearAlert(errores);
         alert(alerta);
@@ -155,6 +140,30 @@ const filtrarCrearTabla = (valorSeleccionado)=>{
     })
     return fragment;
 }
+
+const pintarTablaFiltrada = (generoSeleccionado) =>{
+    if (generoSeleccionado == "---"){//funciona
+        let fila = document.createElement("tr");
+        let columna = document.createElement("td");
+
+        columna.setAttribute("colspan", "4");
+        columna.textContent = "No se ha seleccionado ningun género"
+
+        fila.append(columna);
+        listaFiltrada.append(fila);
+    } else if (generoSeleccionado== "Todos") {//funciona
+        listaPeliculas.forEach((element)=>{
+            let celda = pintarFila(element);
+            fragment.append(celda);
+        });
+        listaFiltrada.append(fragment);
+    } else {
+        console.log("he entrado en lista");
+        let tablaFiltrada1 =filtrarCrearTabla(generoSeleccionado)
+        console.log(tablaFiltrada1);
+        listaFiltrada.append(tablaFiltrada1);
+    }
+};
 
 
 formularioGenero.append(crearDesplegable("--Elige el género---", ...generos));
